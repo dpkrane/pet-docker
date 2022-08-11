@@ -1,6 +1,10 @@
-FROM openjdk:20-slim
-WORKDIR /app
-COPY . .
+FROM openjdk:16-alpine3.13 as build
+WORKDIR /project
+COPY . /project
 RUN chmod +x mvnw && ./mvnw clean package -DskipTests
+
+FROM openjdk:16-alpine3.13
+WORKDIR /app
+COPY --from=build /project/target/*.jar /app/app.jar
 EXPOSE 8080
-CMD ["java","-jar","target/studentsystem-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
