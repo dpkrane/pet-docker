@@ -2,7 +2,7 @@
     - echo ${CI_REGISTRY_IMAGE}
     - echo ${CI_PROJECT_NAME}
     - echo ${CI_JOB_NAME##*_}
-    - docker build --pull --tag=$IMAGE_TAGGED --tag=$IMAGE_LATEST --file=$DOCKERFIL  ${CI_JOB_NAME##*_}
+    - docker build --pull --tag=$IMAGE_TAGGED --tag=$IMAGE_LATEST --file=$DOCKERFILE  ${CI_JOB_NAME##*_}
     - docker push $IMAGE_TAGGED
     - docker push $IMAGE_LATEST
 
