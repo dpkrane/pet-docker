@@ -1,0 +1,12 @@
+include:
+  - project: dpkrane-includes/gitlab-ci
+    file: docker-build.yml
+    ref: v.0.0.1
+
+stages:
+  - "build"
+  - "deploy"
+
+build_nginx:
+  stage: build
+  extends: .build-image
