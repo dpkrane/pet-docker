@@ -21,6 +21,7 @@ build_nginx:
     - docker:dind
   before_script:
     - echo "$CI_JOB_TOKEN" | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+    - echo $DOCKERFILE
   script:
   - *build-image
   tags:
