@@ -5,3 +5,5 @@ include:
 
 build_nginx:
   extends: .build-image
+  variables:
+    CI_JOB_NAME: ${CI_JOB_NAME}
