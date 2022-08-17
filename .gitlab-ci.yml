@@ -7,3 +7,9 @@ stages:
 
 build_nginx:
   extends: .build-image
+
+build_backend:
+  extends: .build-image
+
+build_frontend:
+  extends: .build-image
