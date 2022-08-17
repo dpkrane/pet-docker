@@ -2,20 +2,8 @@ include:
   - project: dpkrane-includes/gitlab-ci
     file: build-docker.yml
 
-build:nginx:
-#  extends: .build-image
-  script:
-    - IMAGE_TAGGED=$CI_REGISTRY_IMAGE/${CI_JOB_NAME#*:}-$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHORT_SHA
-    - IMAGE_LATEST=$CI_REGISTRY_IMAGE/${CI_JOB_NAME#*:}-$CI_COMMIT_REF_SLUG:latest
-    - echo "$CI_REGISTRY_IMAGE/${CI_JOB_NAME}-$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHORT_SHA"
-    - echo $IMAGE_TAGGED
-    - echo $IMAGE_LATEST
-    - echo $CI_JOB_NAME
-    - echo "$IMAGE_TAGGED"
-    - echo "$CI_JOB_NAME"
-    - echo ${IMAGE_TAGGED}
-    - echo ${IMAGE_LATEST}
-    - echo ${CI_JOB_NAME}
-    - echo "${IMAGE_TAGGED}"
-    - echo "${CI_JOB_NAME}"
-    - echo "$CI_JOB_TOKEN" | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+stages:
+  - build
+
+build_nginx:
+  extends: .build-image
