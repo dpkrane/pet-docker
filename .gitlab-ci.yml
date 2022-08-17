@@ -2,11 +2,11 @@ include:
   - project: dpkrane-includes/gitlab-ci
     file: build-docker.yml
 
-build_nginx:
+build:nginx:
 #  extends: .build-image
   variables:
-    IMAGE_TAGGED: "$CI_REGISTRY_IMAGE/${CI_JOB_NAME##*_}-$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHORT_SHA"
-    IMAGE_LATEST: "$CI_REGISTRY_IMAGE/${CI_JOB_NAME##*_}-$CI_COMMIT_REF_SLUG:latest"
+    IMAGE_TAGGED: "$CI_REGISTRY_IMAGE/${CI_JOB_NAME#*:}-$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHORT_SHA"
+    IMAGE_LATEST: "$CI_REGISTRY_IMAGE/${CI_JOB_NAME#*:}-$CI_COMMIT_REF_SLUG:latest"
   script:
     - echo "$CI_REGISTRY_IMAGE/${CI_JOB_NAME}-$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHORT_SHA"
     - echo $IMAGE_TAGGED
