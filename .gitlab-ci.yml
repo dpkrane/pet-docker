@@ -1,9 +1,8 @@
 include:
   - project: dpkrane-includes/gitlab-ci
     file: build-docker.yml
-    ref: v.0.0.1
 
 build_nginx:
   extends: .build-image
   variables:
-    CI_JOB_NAME: ${CI_JOB_NAME}
+    SERVICE: ${CI_JOB_NAME##*_}
