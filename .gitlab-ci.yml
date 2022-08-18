@@ -1,7 +1,7 @@
 include:
   - project: dpkrane-includes/gitlab-ci
     file: build-docker.yml
-    ref: v.0.02
+    ref: v.0.0.2
 stages:
   - build
 
