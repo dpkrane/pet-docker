@@ -8,4 +8,5 @@
 ## 3. Настроить multistage-сборку.
         https://github.com/dpkrane/pet-docker/releases/tag/task3
 ## 4. Настроить gitlab-ci pipeline для сборки образов.
+        https://github.com/dpkrane/pet-docker/releases/tag/task4
 ## 5. Настроить deploy по commit в репозиторий.
