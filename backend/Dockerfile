@@ -1,7 +1,10 @@
 FROM openjdk:16-alpine3.13 as build
 WORKDIR /project
-COPY . /project
-RUN chmod +x mvnw && ./mvnw clean package -DskipTests
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN chmod +x mvnw && ./mvnw dependency:go-offline
+COPY src ./src
+RUN ./mvnw package
 
 FROM openjdk:16-alpine3.13
 WORKDIR /app
