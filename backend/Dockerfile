@@ -4,7 +4,7 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 RUN chmod +x mvnw && ./mvnw dependency:go-offline
 COPY src ./src
-RUN ./mvnw package
+RUN ./mvnw clean package --batch-mode -DskipTests
 
 FROM openjdk:16-alpine3.13
 WORKDIR /app
