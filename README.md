@@ -9,3 +9,4 @@
 ## 4. Настроить gitlab-ci pipeline для сборки образов.
         https://github.com/dpkrane/pet-docker/releases/tag/task4
 ## 5. Настроить deploy по commit в репозиторий.
+        https://github.com/dpkrane/pet-docker/releases/tag/task5
