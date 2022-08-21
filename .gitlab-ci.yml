@@ -25,7 +25,6 @@ build_backend:
         - backend/*
       when: always
 
-
 build_frontend:
   extends: .build-image
   rules:
