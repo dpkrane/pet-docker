@@ -11,27 +11,15 @@ stages:
 
 build_nginx:
   extends: .build-image
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
-      changes:
-        - nginx/*
-      when: always
+
 
 build_backend:
   extends: .build-image
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
-      changes:
-        - backend/*
-      when: always
+
 
 build_frontend:
   extends: .build-image
-  rules:
-  - if: '$CI_PIPELINE_SOURCE == "push"'
-    changes:
-      - frontend/*
-    when: always
+
 
 deploy_dev:
   extends: .deploy-compose
