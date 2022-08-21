@@ -35,8 +35,6 @@ services:
     container_name: back
     expose:
       - 8080
-    ports:
-      - 127.0.0.1:8080:8080
     environment:
       <<: *common-vars
       MYSQL_HOST: 'db'
@@ -52,7 +50,7 @@ services:
     depends_on:
       - back
     expose:
-      - 3000
+      - 80
     container_name: front
     restart: on-failure
     networks: 
@@ -67,6 +65,7 @@ services:
       - back
     ports:
       - 80:80
+    container_name: proxy
     restart: on-failure
     networks:
       - internal
