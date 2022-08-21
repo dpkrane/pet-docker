@@ -2,14 +2,34 @@ include:
   - project: dpkrane-includes/gitlab-ci
     file: build-docker.yml
     ref: v.0.0.2
+  - project: dpkrane-includes/gitlab-ci
+    file: depoy-compose.yml
+
 stages:
   - build
 
 build_nginx:
   extends: .build-image
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - nginx/*
+      when: always
 
 build_backend:
   extends: .build-image
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - backend/*
+      when: always
+
 
 build_frontend:
   extends: .build-image
+  rules:
+  - if: '$CI_PIPELINE_SOURCE == "push"'
+    changes:
+      - frontend/*
+    when: always
+
