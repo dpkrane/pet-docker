@@ -34,3 +34,5 @@ build_frontend:
       - frontend/*
     when: always
 
+deploy_dev:
+  extends: .deploy-compose
