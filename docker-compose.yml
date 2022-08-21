@@ -27,6 +27,7 @@ services:
       - internal
 
   back:
+    image: ${CI_REGISTRY_IMAGE}/backend-master:latest
     build:
       context: backend
       dockerfile: Dockerfile
@@ -44,6 +45,7 @@ services:
       - internal
 
   front:
+    image: ${CI_REGISTRY_IMAGE}/frontend-master:latest
     build:
       context: frontend
       dockerfile: Dockerfile
@@ -57,6 +59,7 @@ services:
       - internal
   
   proxy:
+    image: ${CI_REGISTRY_IMAGE}/nginx-master:latest
     build:
       context: nginx
       dockerfile: Dockerfile
